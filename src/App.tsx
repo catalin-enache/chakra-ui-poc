@@ -9,10 +9,20 @@ import {
 import { BrowserRouter } from "react-router-dom";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { colors } from "./theme/colors";
+import { global } from "./theme/styles/global";
+import { Input } from "./theme/components/Input";
+import { SelectableList } from "./theme/components/SelectableList";
 import { LeftSidebar } from "./components/LeftSidebar";
 import { MainContent } from "./components/MainContent";
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  styles: { global },
+  colors,
+  components: {
+    Input,
+    SelectableList
+  }
+});
 console.log({ theme });
 
 export const App = () => (

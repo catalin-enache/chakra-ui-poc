@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { UnorderedList, ListProps,  ListItem } from '@chakra-ui/react';
+import { chakra, UnorderedList, ListProps, useStyleConfig } from '@chakra-ui/react';
 import { nativeInputValueSetter } from "../../utils";
 
 export interface SpecificSelectableListProps {
@@ -13,7 +13,8 @@ export interface SelectableListProps extends Omit<ListProps, 'onChange'>, Specif
 // The reason for using a hidden input is that
 // we need to emit an "input event" that react-hook-form understands when using "register".
 export const SelectableList = (props: SelectableListProps) => {
-  const { options, value = '', onChange, ...rest } = props;
+  const { options, value = '', onChange, variant, ...rest } = props;
+  const styles: any = useStyleConfig("SelectableList", {});
   const inputEl = useRef<HTMLInputElement | null>(null);
 
   const handleValueSelect = useCallback((evt: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
@@ -27,18 +28,17 @@ export const SelectableList = (props: SelectableListProps) => {
   return (
     <>
       <input type="text" ref={inputEl} onChange={onChange} style={{ display: 'none' }} />
-      <UnorderedList width="100%" listStyleType="none" {...rest}>
+      <UnorderedList __css={styles.list} width="100%" listStyleType="none" {...rest}>
         {[...Object.entries(options)].map(([key, val]) =>
-          <ListItem
+          <chakra.li
             key={key}
             data-value={key}
+            __css={styles.item}
             bgColor={key === value ? 'gray.300' : 'transparent'}
-            cursor="pointer"
-            borderBottom="1px solid gray"
             onClick={handleValueSelect}
           >
             {val}
-          </ListItem>)
+          </chakra.li>)
         }
       </UnorderedList>
     </>

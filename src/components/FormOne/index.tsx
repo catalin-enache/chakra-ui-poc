@@ -9,8 +9,12 @@ import {
   Input,
   Button,
   Select,
-  chakra, VStack,
+  chakra,
+  VStack,
+  InputGroup,
+  InputLeftAddon
 } from '@chakra-ui/react';
+import { PhoneIcon } from '@chakra-ui/icons'
 import { InputWithDebounce } from "../InputWithDebounce";
 import { InputSearchTerms } from "../InputSearchTerms";
 import { InputSearchTermsBis } from "../InputSearchTermsBis";
@@ -150,12 +154,16 @@ export function FormOne() {
 
         <FormControl isInvalid={!!errors.email}>
           <FormLabel htmlFor='email'>Email</FormLabel>
-          <InputWithDebounce
-            delay={1000}
-            id='email'
-            placeholder='email'
-            {...register('email')}
-          />
+          <InputGroup>
+            <InputLeftAddon children={<PhoneIcon />} />
+            <InputWithDebounce
+              delay={1000}
+              id='email'
+              placeholder='email'
+              {...register('email')}
+            />
+          </InputGroup>
+
           <FormErrorMessage>
             {errors.email && errors.email.message}
           </FormErrorMessage>

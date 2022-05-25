@@ -26,10 +26,17 @@ which means they can be re-used outside chakra-ui
 **Text & Layer Styles** allows reusing groups of props (for DRY)  
 https://chakra-ui.com/docs/styled-system/features/text-and-layer-styles#layer-style
 
+Question:   
+light/dark awareness when building the app/components ?
 
-# ZOD Requirements
+# ZOD
+## Requirements
 ```
 TypeScript 4.1+!  
 You must enable strict mode in your tsconfig.json.
 This is a best practice for all TypeScript projects.
 ```
+
+## pros
+can validate async   
+can validate in relations
