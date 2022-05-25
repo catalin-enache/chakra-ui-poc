@@ -2,7 +2,7 @@ export const SelectableList = {
   parts: ['list', 'item'],
   baseStyle: {
     list: {
-      color: 'green',
+      color: 'green.400',
       _hover: {
         bgColor: '#eeeeee',
       },

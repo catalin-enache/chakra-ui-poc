@@ -13,10 +13,10 @@ export interface SelectableListProps extends Omit<ListProps, 'onChange'>, Specif
 // The reason for using a hidden input is that
 // we need to emit an "input event" that react-hook-form understands when using "register".
 export const SelectableList = (props: SelectableListProps) => {
-  const { options, value = '', onChange, variant, ...rest } = props;
-  const styles: any = useStyleConfig("SelectableList", {});
+  const { options, value = '', onChange, size, variant, ...rest } = props;
+  const styles: any = useStyleConfig("SelectableList", { size, variant });
   const inputEl = useRef<HTMLInputElement | null>(null);
-
+  console.log('SelectableList', { styles });
   const handleValueSelect = useCallback((evt: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     // the value is stored in li[data-value]
     const _value = (evt.nativeEvent.target as HTMLElement).closest('li')!.dataset['value'] as string;

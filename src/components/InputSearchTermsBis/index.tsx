@@ -16,6 +16,7 @@ interface InputSearchTermsPropsBis extends Omit<InputWithDebounceProps, 'onChang
 export const InputSearchTermsBis = React.forwardRef<HTMLInputElement, InputSearchTermsPropsBis>((props: InputSearchTermsPropsBis, ref) => {
   const { options, onSearch, value, onChange, id, name, ...rest } = props;
   const [isListVisible, setIsListVisible] = useState(false);
+  console.log('InputSearchTermsBis', { props });
 
   const inputWithDebounce = useRef<HTMLInputElement | null>(null);
 

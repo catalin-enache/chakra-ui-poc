@@ -23,6 +23,7 @@ export const InputSearchTerms = React.forwardRef<HTMLInputElement, InputSearchTe
   const inputPrivate = useRef<HTMLInputElement | null>(null);
   const inputWithDebounce = useRef<HTMLInputElement | null>(null);
   const [isListVisible, setIsListVisible] = useState(false);
+  console.log('InputSearchTerms', { props });
 
   // transfer the value from hidden input to visible input
   useEffect(() => {
