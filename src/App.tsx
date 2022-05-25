@@ -8,11 +8,12 @@ import {
 } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import { colors } from "./theme";
+import { colors } from "./theme/colors";
 import { LeftSidebar } from "./components/LeftSidebar";
 import { MainContent } from "./components/MainContent";
 
-const theme = extendTheme({ colors })
+const theme = extendTheme({ colors });
+console.log({ theme });
 
 export const App = () => (
   <ChakraProvider theme={theme}>
