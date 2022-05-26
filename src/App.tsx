@@ -10,12 +10,14 @@ import { BrowserRouter } from "react-router-dom";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { colors } from "./theme/colors";
 import { global } from "./theme/styles/global";
+import { textStyles } from "./theme/styles/textStyles";
 import { Input } from "./theme/components/Input";
 import { SelectableList } from "./theme/components/SelectableList";
 import { LeftSidebar } from "./components/LeftSidebar";
 import { MainContent } from "./components/MainContent";
 
 const theme = extendTheme({
+  textStyles,
   styles: { global },
   colors,
   components: {
